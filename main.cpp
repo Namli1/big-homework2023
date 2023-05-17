@@ -8,7 +8,72 @@
 using namespace std;
 #include "i18n/i18n.h"
 
+//Console libraries
+#ifdef _WIN32
+#include <cstdlib>
+#endif
+
+
+bool verify(int choice, int lowestOption, int highestOption) {
+    if (choice < lowestOption || choice > highestOption) {
+        cout << "Number out of range! Please pick another option: ";
+        return false;
+    } else {
+        return true;
+    }
+}
+
+void displayMainMenu() {
+    cout << "Main Menu" << endl;
+    cout << "1 - Search canteens" << endl;
+    cout << "2 - Canteen Filter" << endl;
+    cout << "3 - What is the closest canteen?" << endl;
+    cout << "4 - Canteen recommendation" << endl;
+    cout << "5 - My canteens" << endl;
+    cout << "6 - Language/语言" << endl;
+    cout << "Please choose: ";
+}
+
+void clearConsole() {
+    #ifdef _WIN32
+    // windows-code:
+    system("cls");
+    #elif defined(__APPLE__)
+    // macos-code:
+    cout << "\033[2J\033[1;1H";
+    #else
+    // Code for other platforms
+    // ...
+    #endif
+}
+
+void mainMenu() {
+    unsigned int choice1;
+    unsigned int choice2;
+    displayMainMenu();
+    cin >> choice1;
+    while(!verify(choice1, 1, 6)) {
+        //User inputted number out of range
+        cin >> choice1;
+    }
+    //Clear console:
+    clearConsole();
+    switch(choice1) {
+            
+    }
+    cout << "Pick some other option now (test): " << endl;
+    cin >> choice2;
+}
+
 int main() {
+    cout << "Welcome to the Tsinghua Canteen Exploration Program" << endl;
+    mainMenu();
+    return 0;
+}
+
+
+
+void testI18N() {
     // Create an instance of the I18N class with the "de" locale
     I18N i18n;
 
@@ -37,6 +102,4 @@ int main() {
     // Call the getCurrency() method to format a currency amount
     string currency = i18n.getCurrency(1234, "EUR");
     cout << "Formatted currency: " << currency << endl;
-
-    return 0;
 }
