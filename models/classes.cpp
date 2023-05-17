@@ -16,17 +16,6 @@ class Canteen {
         LatLng location;
         //Opening times -> array of opening times -> probably static
         OpenTime opening_times[4]; //No canteen has more than 4 opening times (I think)
-    
-}
-
-struct LatLng {
-    float latitude;
-    float longitude;
-}
-
-struct OpenTime {
-    int opening_time; //In minutes past midnight
-    int closing_time; //In minutes past midnight
 }
 
 struct Optionality {
