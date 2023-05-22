@@ -1,0 +1,135 @@
+#include "latlng.h"
+#include <array>
+using namespace std;
+
+int main()
+{
+cout<<"Welcome to our interface!"<<endl;
+cout<<"Please select your current location: "<<endl;
+cout<<"Qingfen: 1"<<"\n"<<"Guanchou: 2"<<"\n"<<"Zijing: 3"<<"\n"<<"Taoli: 4"<<"\n"<<"Liujiao: 5"<<"\n";
+int n;
+Location temp;
+Location temp2;
+string stringtemp;
+string stringtemp2;
+cin>>n;
+switch(n) //was wondering if there is a more efficient way of doing this using enumeration or other methods of using integer input to determine a predefined object of a class
+{
+case 1:
+    temp=Qingfen;
+    stringtemp="Qingfen";
+    break;
+case 2:
+    temp=Guanchou;
+    stringtemp="Guanchou";
+    break;
+case 3:
+    temp=Zijing;
+    stringtemp="Zijing";
+    break;
+case 4:
+    temp=Taoli;
+    stringtemp="Taoli";
+    break;
+case 5:
+    temp=Teaching_Building_Six;
+    stringtemp="Liujiao";
+    break;
+}
+cout<<"Your Selected Current Location is: "<<stringtemp<<"\n"<<"Is this correct?"<<"\n"<<"If your selected location is correct, please press 1"<<"\n"<<"Else press 0 to select location again"<<endl;
+int a;
+cin>>a;
+while(a==0) //this while loop is possibly not necessary, but allows user to confirm/re-select location and later destination as well.
+{
+    cout<<"Please re-select your current location: "<<endl;
+cout<<"Qingfen: 1"<<"\n"<<"Guanchou: 2"<<"\n"<<"Zijing: 3"<<"\n"<<"Taoli: 4"<<"\n"<<"Liujiao: 5"<<"\n";
+int n;
+cin>>n;
+switch(n)
+{
+case 1:
+    temp=Qingfen;
+    stringtemp="Qingfen";
+    break;
+case 2:
+    temp=Guanchou;
+    stringtemp="Guanchou";
+    break;
+case 3:
+    temp=Zijing;
+    stringtemp="Zijing";
+    break;
+case 4:
+    temp=Taoli;
+    stringtemp="Taoli";
+    break;
+case 5:
+    temp=Teaching_Building_Six;
+    stringtemp="Liujiao";
+    break;
+}
+cout<<"Your Selected Current Location is: "<<stringtemp<<"\n"<<"Is this correct?"<<"\n"<<"If your selected location is correct, please press 1"<<"\n"<<"Else, press 0 to select location again"<<endl;
+cin>>a;
+}
+cout<<"Please Select Destination Canteen: "<<"\n"<<"Qingfen: 1"<<"\n"<<"Guanchou: 2"<<"\n"<<"Zijing: 3"<<"\n"<<"Taoli: 4"<<endl;
+int j;
+cin>>j;
+switch(j)
+{
+case 1:
+    temp2=Qingfen;
+    stringtemp2="Qingfen";
+    break;
+case 2:
+    temp2=Guanchou;
+    stringtemp2="Guanchou";
+    break;
+case 3:
+    temp2=Zijing;
+    stringtemp2="Zijing";
+    break;
+case 4:
+    temp2=Taoli;
+    stringtemp2="Taoli";
+    break;
+}
+cout<<"Your Selected Destination is: "<<stringtemp2<<"\n"<<"Is this correct?"<<"\n"<<"If your selected destination is correct, please press 1"<<"\n"<<"Else press 0 to select location again"<<endl;
+int i;
+cin>>i;
+
+
+while(i==0)
+{
+    cout<<"Please re-select your destination: "<<endl;
+cout<<"Qingfen: 1"<<"\n"<<"Guanchou: 2"<<"\n"<<"Zijing: 3"<<"\n"<<"Taoli: 4"<<"\n";
+int n;
+cin>>n;
+switch(n)
+{
+case 1:
+    temp2=Qingfen;
+    stringtemp2="Qingfen";
+    break;
+case 2:
+    temp2=Guanchou;
+    stringtemp2="Guanchou";
+    break;
+case 3:
+    temp2=Zijing;
+    stringtemp2="Zijing";
+    break;
+case 4:
+    temp2=Taoli;
+    stringtemp2="Taoli";
+    break;
+}
+cout<<"Your Selected Destination is: "<<stringtemp2<<"\n"<<"Is this correct?"<<"\n"<<"If your selected destination is correct, please press 1"<<"\n"<<"Else, press 0 to select location again"<<endl;
+cin>>i;
+}
+temp.display_info(); //This displays latitude and longitude coordinates of current location, below displays similar information for destination.
+temp2.display_info();
+float distance1;
+distance1=temp.Calculate_Distance(temp2); //This also allows for customised input allowing for flexible distance calculation function
+cout<<"Distance between "<<stringtemp<<" and "<<stringtemp2<<": "<<distance1<<"m"<<endl; //the use of temporary string objects allows for this flexible display screen.
+    return 0;
+}
