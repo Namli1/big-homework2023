@@ -5,12 +5,31 @@
             "label": "C/C++: clang++ build active file",
             "command": "/usr/bin/clang++",
             "args": [
+                "-std=c++17",
+                "-stdlib=libc++",
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
-                "${file}",
+                "${workspaceFolder}/*.cpp",
+                "${workspaceFolder}/src/i18n/*.cpp",
+                "${workspaceFolder}/src/global/*.cpp",
+                "${workspaceFolder}/src/helpers/*.cpp",
+                "${workspaceFolder}/src/io/*.cpp",
+                "${workspaceFolder}/src/models/*.cpp",
+                "${workspaceFolder}/src/data/*.cpp",
+                "${workspaceFolder}/src/proximity/*.cpp",
+                "${workspaceFolder}/src/filter/*.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/${fileBasenameNoExtension}"
+                // "-g",
+                // //"${file}",
+                // //"${workspaceFolder}/*.cpp",
+                // "${workspaceFolder}/*.cpp",
+                // //"${workspaceFolder}/i18n/*.cpp",
+                // //"g++ ${fileDirname}/**.cpp",
+                // //"${fileDirname}\\**.cpp",
+                // "-o",
+                // "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
