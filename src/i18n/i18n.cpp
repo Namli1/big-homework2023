@@ -10,7 +10,6 @@ char I18N::locale[3] = "en";
 I18N::I18N() {
     // The default constructor sets the locale to "de"
     string saved_locale = readFile("current_locale.txt");
-    cout << "Read locale: " << saved_locale << endl;
     if(!saved_locale.empty()) { 
         //If there is something saved in the file, set the locale
         memcpy(I18N::locale, saved_locale.c_str(), 3);
@@ -18,7 +17,6 @@ I18N::I18N() {
         //Else set default to english
         memcpy(I18N::locale, "en", 3);
     }
-    
 }
 
 I18N::I18N(char current[3]) {

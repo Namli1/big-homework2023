@@ -1,6 +1,8 @@
 #ifndef TRANSLATIONS_H
 #define TRANSLATIONS_H
 
+//整个模块由**栗思祺**实现
+
 using namespace std;
 
 struct Translation {

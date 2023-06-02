@@ -60,6 +60,7 @@ string Meal::getName() const {
     return name;
 }
 
+//Get all ingredients of meal
 set<Ingredient> Meal::getIngredients(bool includeOptional) const {
     set<Ingredient> ingredients;
     //Loop over all (optional) ingredients of the meal

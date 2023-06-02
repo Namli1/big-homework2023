@@ -66,7 +66,7 @@ OpenTime parseOpenTime(string input) {
         if(input[0] == '>') {
                 //Set only start time
                 short startMinutes = parseDateFormat(input.substr(1)); //Parse string after first character (which is '>')
-                return OpenTime(startMinutes, 1439); //1439 is 23:59 in minutes
+                return OpenTime(startMinutes, startMinutes);
         } else if(input[0] == '<') {
             //Set only end time
             short endMinutes = parseDateFormat(input.substr(1)); //Parse string after first character (which is '<')
@@ -91,7 +91,6 @@ OpenTime parseOpenTime(string input) {
         getline(iss, minuteStr1, '-');
         getline(iss, hourStr2, ':');
         getline(iss, minuteStr2);
-        cout << hourStr2 << endl;
         short hour1 = std::stoi(hourStr1);
         short hour2 = std::stoi(hourStr2);
         short minute1 = std::stoi(minuteStr1);
@@ -153,7 +152,7 @@ bool containsOpeningTime(Canteen canteen, OpenTime opening_time) {
     for(int i=0; i<3; i++) {
         OpenTime time = opentimes[i];
         //See if opening time is earlier than desired opening time and closing time later than desired closing time
-        if (opening_time.opening_time >= time.opening_time && opening_time.closing_time <= time.closing_time) {
+        if (opening_time.opening_time >= time.opening_time) { //|| opening_time.closing_time <= time.closing_time) {
             return true;
         }
     }

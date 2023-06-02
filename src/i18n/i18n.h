@@ -1,6 +1,8 @@
 #ifndef I18N_H
 #define I18N_H
 
+//整个模块由**栗思祺**实现
+
 #include <iostream>
 #include <cstring>
 #include <cmath>

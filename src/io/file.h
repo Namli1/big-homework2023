@@ -1,3 +1,6 @@
+#ifndef FILE_H
+#define FILE_H
+
 #include <iostream>
 
 using namespace std;
@@ -7,3 +10,5 @@ int displayFile(string filename, string empty_message="Sorry, there is no data s
 string readFile(string filename);
 int writeFile(string input, string filename, bool replace=false);
 void clearFile(string filename);
+
+#endif

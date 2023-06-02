@@ -1,6 +1,8 @@
 #ifndef PROXIMITY_H
 #define PROXIMITY_H
 
+//整个模块由**灏谛伦**实现
+
 #include "../models/classes.h"
 
 float convertRadians(float a);
