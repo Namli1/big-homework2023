@@ -148,7 +148,7 @@ set<Ingredient> getIngredients() {
 }
 
 bool containsOpeningTime(Canteen canteen, OpenTime opening_time) {
-    OpenTime* opentimes = canteen.getOpeningTimes();
+    const OpenTime* opentimes = canteen.getOpeningTimes();
     //Loop over every opening time
     for(int i=0; i<3; i++) {
         OpenTime time = opentimes[i];

@@ -17,7 +17,7 @@ ostream & operator << (ostream &out, const LatLng &l) {
 //OpenTime class
 OpenTime::OpenTime() {};
 OpenTime::OpenTime(unsigned short opening_time, unsigned short closing_time) : opening_time(opening_time), closing_time(closing_time) {};
-void OpenTime::displayOpenTime() {
+void OpenTime::displayOpenTime() const {
     int opening_hour = opening_time / 60;
     int opening_minutes = opening_time % 60;
     int closing_hour = closing_time / 60;
@@ -56,11 +56,11 @@ bool Optionality::operator==(const Optionality& other) const {
 //Meal Class
 Meal::Meal(string name, vector<Optionality> ingredients) : name(name), ingredients(ingredients) {}
 
-string Meal::getName() {
+string Meal::getName() const {
     return name;
 }
 
-set<Ingredient> Meal::getIngredients(bool includeOptional) {
+set<Ingredient> Meal::getIngredients(bool includeOptional) const {
     set<Ingredient> ingredients;
     //Loop over all (optional) ingredients of the meal
     for (size_t i = 0; i < this->ingredients.size(); ++i) {
@@ -90,13 +90,15 @@ Canteen::Canteen(string name, LatLng location, OpenTime opening_times[3], set<Me
     for (int i = 0; i < 3; i++) {
         this->opening_times[i] = opening_times[i];
     }
-   //copy(opening_times, opening_times + 3, this->opening_times);
 }
 
-string Canteen::getSignatureMealsList() {
+//Getting signature meals
+string Canteen::getSignatureMealsList() const {
     string result;
     for(Meal meal : signature_meals) {
+        //Add meal name to string
         result.append(meal.getName());
+        //Add a comma
         result.append(", ");
     }
     //Remove last comma
@@ -104,7 +106,7 @@ string Canteen::getSignatureMealsList() {
     return result;
 }
 
-void Canteen::display_information()
+void Canteen::display_information() const
 {
     cout<<"Canteen Name: "<<getName()<<endl;
     printspace(1);
@@ -123,22 +125,24 @@ void Canteen::display_information()
     cout<<nearestCanteenName(*this) << endl;
 }
 
-int Canteen::favourite() {
+int Canteen::favourite() const {
+    //Write to canteen name to file to favorite canteen
     return writeFile(getName(), "canteen_favourite.txt");
 }
 
-set<Meal> Canteen::getSignatureMeals() {
+set<Meal> Canteen::getSignatureMeals() const {
     return this->signature_meals;
 }
 
-set<Meal> Canteen::getMeals() {
+set<Meal> Canteen::getMeals() const {
     set<Meal> meals = signature_meals;
+    //Merge signature_meals and meals together
     meals.insert(this->meals.begin(), this->meals.end());
     return meals;
 }
 
-set<Ingredient> Canteen::getIngredients(bool includeOptional) {
-    //TODO
+set<Ingredient> Canteen::getIngredients(bool includeOptional) const {
+    //Using set to ensure uniqueness
     set<Ingredient> ingredients;
     //Loop over all meals
     for(Meal meal : meals) {
@@ -147,11 +151,11 @@ set<Ingredient> Canteen::getIngredients(bool includeOptional) {
     return ingredients;
 }
 
-OpenTime* Canteen::getOpeningTimes() {
-    return this->opening_times;
+const OpenTime* Canteen::getOpeningTimes() const {
+    return opening_times;
 }
 
-set<Meal> Canteen::containsIngredients(set<Ingredient> ingredients, bool includeOptional) {
+set<Meal> Canteen::containsIngredients(set<Ingredient> ingredients, bool includeOptional) const {
     set<Meal> matchingMeals;
     //Loop over all meals
     for(Meal meal : meals) {

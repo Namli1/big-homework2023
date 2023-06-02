@@ -56,9 +56,11 @@ bool isThisCorrect(string message) {
     cout << message;
     char character;
     cin>>character;
+    //Verifying characters, ignores capitalisation by default
     while(!verifyChar(character, 'Y', 'N')) {
         cin >> character;
     }
+    //If user inputs Y/y
     if (character=='Y' || character=='y') {
         return true;
     } else {

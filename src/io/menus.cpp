@@ -25,13 +25,11 @@ inline void displayMainMenu() { //initial main menu display, using the centrify 
     printspace(3);
     centrify_output(i18n.gettext("3 - What is the Closest Canteen?"),num_cols);
     printspace(3);
-    centrify_output(i18n.gettext("4 - Canteen Recommendation"),num_cols);
+    centrify_output(i18n.gettext("4 - My Canteens"),num_cols);
     printspace(3);
-    centrify_output(i18n.gettext("5 - My Canteens"),num_cols);
+    centrify_output(i18n.gettext("5 - Language/语言"),num_cols);
     printspace(3);
-    centrify_output(i18n.gettext("6 - Language/语言"),num_cols);
-    printspace(3);
-    centrify_output(i18n.gettext("7 - Clear Cache"),num_cols);
+    centrify_output(i18n.gettext("6 - Clear Cache"),num_cols);
     printspace(4);
     centrify_output(i18n.gettext("Please choose: "),num_cols);
 }

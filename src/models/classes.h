@@ -25,7 +25,7 @@ struct OpenTime {
 
     OpenTime();
     OpenTime(unsigned short opening_time, unsigned short closing_time);
-    void displayOpenTime();
+    void displayOpenTime() const;
 };
 
 enum Ingredient {
@@ -66,8 +66,8 @@ class Meal  {
     public:
         Meal() {};
         Meal(string name, vector<Optionality> ingredients);
-        set<Ingredient> getIngredients(bool includeOptional=true);
-        string getName();
+        set<Ingredient> getIngredients(bool includeOptional=true) const;
+        string getName() const;
         //Need to define these because the <set> library needs to use these
         bool operator<(const Meal& other) const;
         bool operator==(const Meal& other) const;
@@ -94,14 +94,14 @@ class Canteen: public Building {
     public:
         Canteen() {};
         Canteen(string name, LatLng location, OpenTime opening_times[3], set<Meal> signature_meals, set<Meal> meals);
-        int favourite();
-        void display_information();
-        OpenTime* getOpeningTimes();
-        set<Meal> getSignatureMeals();
-        string getSignatureMealsList();
-        set<Meal> getMeals();
-        set<Ingredient> getIngredients(bool includeOptional=true);
-        set<Meal> containsIngredients(set<Ingredient> ingredients, bool includeOptional=true);
+        int favourite() const ;
+        void display_information() const ;
+        const OpenTime* getOpeningTimes() const;
+        set<Meal> getSignatureMeals() const;
+        string getSignatureMealsList() const;
+        set<Meal> getMeals() const;
+        set<Ingredient> getIngredients(bool includeOptional=true) const;
+        set<Meal> containsIngredients(set<Ingredient> ingredients, bool includeOptional=true) const;
         //Need to define these because the <set> library needs to use these
         bool operator<(const Canteen& other) const;
         bool operator==(const Canteen& other) const;
