@@ -10,6 +10,7 @@
 #include <array>
 using namespace std;
 
+//由灏谛伦实现
 struct LatLng {
     float latitude;
     float longitude;
@@ -19,6 +20,7 @@ struct LatLng {
     friend ostream & operator << (ostream &out, const LatLng &l);
 };
 
+//由栗思祺实现
 struct OpenTime {
     unsigned short opening_time; //In minutes past midnight
     unsigned short closing_time; //In minutes past midnight
@@ -49,6 +51,7 @@ enum Ingredient {
     SEASAME
 };
 
+//由栗思祺实现
 struct Optionality {
     bool isOptional; //Wether ingredient is optional or always added
     Ingredient ingredient;
@@ -59,6 +62,7 @@ struct Optionality {
     bool operator==(const Optionality& other) const;
 };
 
+//由栗思祺实现
 class Meal  {
     private:
         string name;
@@ -73,6 +77,7 @@ class Meal  {
         bool operator==(const Meal& other) const;
 };
 
+//由栗思祺实现
 class Building {
     private:
         string name;
@@ -84,6 +89,7 @@ class Building {
         Building(string name, LatLng location);
 };
 
+//由栗思祺实现
 class Canteen: public Building {
     private:
         //LatLng location;

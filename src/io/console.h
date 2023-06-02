@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+//整个模块由灏谛伦实现
+
 //declarations of all the functions defined in the source file
 void clearConsole();
 
